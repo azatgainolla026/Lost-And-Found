@@ -1,0 +1,111 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <h1>{{ user.username }}'s Profile</h1>
+    <p>Phone Number: {{ user.phone_number }}</p>
+    <p>Email Address : {{user.email }}</p>
+    <hr>
+    <h2>Sent Claim Requests</h2>
+    <table class="table-style">
+        <thead>
+        <tr>
+            <th>Item</th>
+            <th>Message</th>
+            <th>Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for claim in sent_claim_requests %}
+            <tr class="table-row">
+                <td>{{ claim.found_item.name }}</td>
+                <td>{{ claim.message }}</td>
+                <td>{{ claim.status }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <hr>
+    <h2>Received Claim Requests</h2>
+    <table class="table-style">
+        <thead>
+        <tr>
+            <th>Item</th>
+            <th>User Contact</th>
+            <th>Message</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for claim in received_claim_requests %}
+            <tr class="table-row">
+                <td>{{ claim.found_item.name }}</td>
+                <td>{{ claim.claimant.phone_number }}</td>
+                <td>{{ claim.message }}</td>
+                <td>{{ claim.status }}</td>
+                <td>
+                    {% if claim.status == 'pending' %}
+                        <a href="{% url 'approve_claim' claim.id %}" class="btn-approve">Approve</a>
+                        <a href="{% url 'reject_claim' claim.id %}" class="btn-reject">Reject</a>
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <style>
+        .table-style {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .table-style th, .table-style td {
+            padding: 12px 15px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        .table-style th {
+            background-color: #3b82f6;
+            color: white;
+            font-weight: bold;
+        }
+
+        .table-style tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .table-style tr:hover {
+            background-color: #ddd;
+        }
+
+        .btn-approve, .btn-reject {
+            display: inline-block;
+            padding: 8px 12px;
+            margin: 5px 5px;
+            text-decoration: none;
+            color: white;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .btn-approve {
+            background-color: #4CAF50;
+        }
+
+        .btn-reject {
+            background-color: #f44336;
+        }
+
+        .btn-approve:hover {
+            background-color: #45a049;
+        }
+
+        .btn-reject:hover {
+            background-color: #e53935;
+        }
+    </style>
+{% endblock %}

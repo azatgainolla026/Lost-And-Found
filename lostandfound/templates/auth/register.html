@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+<div class="auth-container">
+    <div class="auth-form-container">
+        <h1>Create Account</h1>
+        <p>Please fill in your information to get started.</p>
+        <form method="POST">
+            {% csrf_token %}
+
+            {% for field in form %}
+                <div>
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                    {{ field }}
+
+                    {% if form.is_bound and field.errors %}
+                        <ul class="field-errors">
+                            {% for error in field.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+
+                </div>
+            {% endfor %}
+
+            <button type="submit" class="auth-button primary">Create Account</button>
+        </form>
+        <p class="auth-redirect">
+            Already have an account?
+            <a href="{% url 'login' %}">Login</a>
+        </p>
+    </div>
+</div>
+</body>
+</html>
