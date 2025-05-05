@@ -1,10 +1,10 @@
 # Lost & Found
 
 ## Team Members
-- **Azat Gainolla** – 220103291  
-- **Alikhan Nassikhov** – 220103368  
+- **Azat Gainolla** – 220103291  19-p
+- **Alikhan Nassikhov** – 220103368  19-p
 - **Alikhan Galymzhan** – 220103203  
-- **Berik Rakhmetov** – 220103146  
+- **Berik Rakhmetov** – 220103146  13-p
 
 ---
 
@@ -13,6 +13,15 @@
 **Lost & Found** is a community-driven platform to help people report and find lost items. Whether you've lost your belongings or found someone else’s, our system makes it fast and secure to connect and resolve the issue.
 
 ---
+
+## Objectives
+Provide a simple way to report and claim lost items
+
+Improve item recovery rates through search and filters
+
+Enable secure communication between finders and owners
+
+
 
 ## Features
 
@@ -45,7 +54,7 @@ docker-compose exec web python manage.py makemigrations
 docker-compose exec web python manage.py migrate
 docker-compose exec web python manage.py createsuperuser
 ```
-##Access the App
+## Access the App
 
 Django App: http://localhost:8000/
 
@@ -54,3 +63,18 @@ Admin Panel: http://localhost:8000/admin/
 PgAdmin: http://localhost:5050/
 
 MinIO Console: http://localhost:9001/
+
+
+## References
+
+Django documentation: https://docs.djangoproject.com/
+
+MinIO: https://min.io/docs/minio
+
+Docker Compose: https://docs.docker.com/compose/
+
+PostgreSQL: https://www.postgresql.org/docs/
+
+## Requirements 
+
+Docker Desktop installed
