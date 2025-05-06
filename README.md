@@ -3,7 +3,7 @@
 ## Team Members
 - **Azat Gainolla** – 220103291  19-p
 - **Alikhan Nassikhov** – 220103368  19-p
-- **Alikhan Galymzhan** – 220103203  
+- **Alikhan Galymzhan** – 220103203  14-p
 - **Berik Rakhmetov** – 220103146  13-p
 
 ---
