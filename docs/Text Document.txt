@@ -1,0 +1,18 @@
+ Lost & Found — URL Routing Documentation
+Authentication Routes
+URL Path	View	Name	Description
+/register/	register_view	register	User registration page
+/login/	CustomLoginView	login	User login page
+/logout/	LogoutView	logout	Logs the user out and redirects to home
+
+Main App Routes
+URL Path	View	Name	Description
+/	index	home	Home page
+/items/	UnclaimedItems	items	View all unclaimed found items
+/items/<int:pk>	ItemDetailView	item-detail	View details of a specific item by ID
+/report/	report	report	Report a found item
+/search/	search	search	Search for items by keyword
+/item/<int:pk>/claim/	claim_item	claim-item	Submit a claim request for a specific item
+/profile/	profile	profile	View and manage user profile and claims
+/approve_claim/<int:claim_id>/	approve_claim	approve_claim	Admin route to approve an item claim
+/reject_claim/<int:claim_id>/	reject_claim	reject_claim	Admin route to reject an item claim
